@@ -12,6 +12,7 @@
 <meta property="og:url" content="https://rmmobiledetailing.ca/">
 <meta property="og:image" content="https://rmmobiledetailing.ca/images/hero.jpg">
 <meta name="theme-color" content="#0a1722">
+<link rel="icon" href="images/logo.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
@@ -80,7 +81,9 @@
   }
   header.site .wrap { display: flex; align-items: center; gap: 20px; height: 68px; }
   .logo { font-family: "Outfit", sans-serif; font-weight: 700; font-size: 1.25rem; color: #fff; text-decoration: none; white-space: nowrap; }
-  .logo span { color: var(--aqua); }
+  .logo { display: inline-flex; align-items: center; gap: 10px; }
+  .logo img { width: 44px; height: 44px; border-radius: 50%; border: 2px solid rgba(31,195,238,.6); }
+  .logo span { color: var(--aqua); margin-left: -4px; }
   nav.main { display: flex; gap: 26px; margin-left: auto; }
   nav.main a { color: #cfdbe4; text-decoration: none; font-size: .98rem; }
   nav.main a:hover { color: #fff; }
@@ -235,6 +238,12 @@
     }
     .mobile-bar .btn { min-height: 50px; padding: 10px; font-size: 1rem; }
   }
+  @media (max-width: 420px) {
+    header.site .wrap { gap: 8px; padding: 0 14px; }
+    .logo { font-size: 1rem; gap: 8px; }
+    .logo img { width: 36px; height: 36px; }
+    .head-phone { font-size: .9rem; }
+  }
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .btn { transition: none; } }
 </style>
 </head>
@@ -242,7 +251,7 @@
 
 <header class="site">
   <div class="wrap">
-    <a class="logo" href="#top">RM <span>Mobile Detailing</span></a>
+    <a class="logo" href="#top"><img src="images/logo.jpg" width="44" height="44" alt="">RM <span>Mobile Detailing</span></a>
     <nav class="main" aria-label="Main">
       <a href="#pricing">Services &amp; Prices</a>
       <a href="#gallery">Our Work</a>
