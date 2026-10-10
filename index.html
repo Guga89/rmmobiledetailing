@@ -137,18 +137,24 @@
   /* Gallery */
   .gallery { display: flex; gap: 14px; margin-top: 36px; padding: 0 14px; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
   .gallery::-webkit-scrollbar { display: none; }
-  .shot { position: relative; flex: 0 0 clamp(260px, 30vw, 400px); aspect-ratio: 4 / 3; border-radius: var(--radius); overflow: hidden; background: #e3ecf2; }
-  .shot img { width: 100%; height: 100%; object-fit: cover; }
-  .shot.empty img { display: none; }
-  .shot.empty { border: 2px dashed #b6c7d3; display: grid; place-items: center; }
-  .shot.empty::after { content: "Photo coming soon"; color: #7d92a1; font-size: .9rem; }
+  .shot { flex: 0 0 auto; height: clamp(230px, 28vw, 340px); border-radius: var(--radius); overflow: hidden; background: #e3ecf2; }
+  .shot img { height: 100%; width: auto; max-width: none; }
+  .insta-row { margin-top: 32px; }
+  .btn-insta { background: linear-gradient(45deg, #f09433, #dc2743 50%, #bc1888); color: #fff; }
+  .rating { display: inline-block; background: var(--ink-2); border: 1px solid #1f3d54; border-radius: var(--radius); padding: 30px 44px; margin: 36px 0 28px; }
+  .rating .score { font-family: "Outfit", sans-serif; font-weight: 700; font-size: 3.4rem; line-height: 1; color: #fff; }
+  .rating .stars { font-size: 1.6rem; margin: 8px 0 4px; }
+  .rating p { margin: 0; color: #b9c9d4; }
+  .social { display: inline-flex; align-items: center; gap: 8px; color: #fff; text-decoration: none; font-weight: 600; margin-top: 14px; }
+  .social svg { width: 22px; height: 22px; }
 
   /* Reviews */
   #reviews { background: var(--ink); color: #fff; }
   #reviews h2 { color: #fff; }
   #reviews .lead { color: #b9c9d4; }
   #reviews .eyebrow { color: var(--aqua); }
-  .reviews { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin: 40px 0 32px; text-align: left; }
+  .reviews { display: grid; grid-template-columns: 1.7fr 1fr 1fr; align-items: start; gap: 22px; margin: 12px 0 32px; text-align: left; }
+  .review blockquote p:last-child { margin-bottom: 0; }
   .review { background: var(--ink-2); border: 1px solid #1f3d54; border-radius: var(--radius); padding: 26px; }
   .stars { color: var(--gold); letter-spacing: 3px; font-size: 1.1rem; margin-bottom: 10px; }
   .review blockquote { margin: 0 0 16px; color: #e3ecf2; }
@@ -254,7 +260,7 @@
 
   <!-- HERO -->
   <div class="hero">
-    <img class="hero-photo" src="images/hero.jpg" alt="" onerror="this.remove()">
+    <img class="hero-photo" src="images/hero.jpg" alt="">
     <div class="wrap">
       <div class="eyebrow">Mobile Car Detailing · Ottawa</div>
       <h1>A showroom-clean car, <em>right in your driveway.</em></h1>
@@ -368,7 +374,7 @@
     </div>
   </section>
 
-  <!-- GALLERY: drop photos into the images folder as gallery-1.jpg ... gallery-6.jpg -->
+  <!-- GALLERY: to add a photo, put it in the images folder and copy one of the "shot" lines below -->
   <section id="gallery">
     <div class="wrap center">
       <div class="eyebrow">Our work</div>
@@ -376,36 +382,67 @@
       <p class="lead">Real vehicles we've detailed around Ottawa.</p>
     </div>
     <div class="gallery" aria-label="Photo gallery">
-        <div class="shot"><img src="images/gallery-1.jpg" alt="Detailed vehicle 1" loading="lazy" onerror="this.parentElement.classList.add('empty')"></div>
-        <div class="shot"><img src="images/gallery-2.jpg" alt="Detailed vehicle 2" loading="lazy" onerror="this.parentElement.classList.add('empty')"></div>
-        <div class="shot"><img src="images/gallery-3.jpg" alt="Detailed vehicle 3" loading="lazy" onerror="this.parentElement.classList.add('empty')"></div>
-        <div class="shot"><img src="images/gallery-4.jpg" alt="Detailed vehicle 4" loading="lazy" onerror="this.parentElement.classList.add('empty')"></div>
-        <div class="shot"><img src="images/gallery-5.jpg" alt="Detailed vehicle 5" loading="lazy" onerror="this.parentElement.classList.add('empty')"></div>
-        <div class="shot"><img src="images/gallery-6.jpg" alt="Detailed vehicle 6" loading="lazy" onerror="this.parentElement.classList.add('empty')"></div>
+        <div class="shot"><img src="images/gallery-16.jpg" width="825" height="1100" alt="Black Infiniti coupe detailed in a customer's driveway"></div>
+        <div class="shot"><img src="images/gallery-02.jpg" width="1100" height="825" alt="Mazda CX-9 interior with clean brown leather"></div>
+        <div class="shot"><img src="images/gallery-03.jpg" width="1100" height="825" alt="White Hyundai Sonata after an exterior detail"></div>
+        <div class="shot"><img src="images/gallery-04.jpg" width="1100" height="825" alt="Sonata rear seats with clean tan leather"></div>
+        <div class="shot"><img src="images/gallery-01.jpg" width="1100" height="825" alt="Black Mazda CX-9 with glossy paint"></div>
+        <div class="shot"><img src="images/gallery-19.jpg" width="1100" height="825" alt="BMW interior with clean red leather seats"></div>
+        <div class="shot"><img src="images/gallery-09.jpg" width="1100" height="825" alt="White Hyundai Sonata front view after detailing"></div>
+        <div class="shot"><img src="images/gallery-08.jpg" width="1100" height="825" alt="Sonata front seats and floor mats cleaned" loading="lazy"></div>
+        <div class="shot"><img src="images/gallery-14.jpg" width="1100" height="619" alt="Cleaned engine bay" loading="lazy"></div>
+        <div class="shot"><img src="images/gallery-17.jpg" width="825" height="1100" alt="Black Infiniti coupe shining in the sun" loading="lazy"></div>
+        <div class="shot"><img src="images/gallery-10.jpg" width="1100" height="619" alt="Clean cloth front seats and dashboard" loading="lazy"></div>
+        <div class="shot"><img src="images/gallery-05.jpg" width="1100" height="825" alt="Clean steering wheel and dashboard" loading="lazy"></div>
+        <div class="shot"><img src="images/gallery-20.jpg" width="825" height="1100" alt="BMW rear seats with clean red leather" loading="lazy"></div>
+        <div class="shot"><img src="images/gallery-11.jpg" width="1100" height="619" alt="Clean cloth rear seats" loading="lazy"></div>
+        <div class="shot"><img src="images/gallery-06.jpg" width="1100" height="825" alt="Brown leather driver seat after cleaning" loading="lazy"></div>
+        <div class="shot"><img src="images/gallery-13.jpg" width="1100" height="619" alt="Engine bay after detailing" loading="lazy"></div>
+        <div class="shot"><img src="images/gallery-18.jpg" width="825" height="1100" alt="BMW steering wheel wrapped after detailing" loading="lazy"></div>
+        <div class="shot"><img src="images/gallery-07.jpg" width="1100" height="825" alt="Dust-free centre console and vents" loading="lazy"></div>
+        <div class="shot"><img src="images/gallery-12.jpg" width="619" height="1100" alt="Clean passenger seat and floor mat" loading="lazy"></div>
+        <div class="shot"><img src="images/gallery-15.jpg" width="1100" height="825" alt="Clean gear shifter and cup holders" loading="lazy"></div>
+    </div>
+    <div class="wrap center insta-row">
+      <a class="btn btn-insta" data-insta-link href="#gallery" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></svg>
+        See before &amp; after photos on Instagram
+      </a>
     </div>
   </section>
 
-  <!-- REVIEWS: replace the placeholders with real Google reviews, then remove class "placeholder" -->
+  <!-- REVIEWS -->
   <section id="reviews">
     <div class="wrap center">
       <div class="eyebrow">Reviews</div>
       <h2>What our customers say</h2>
-      <p class="lead">Straight from Google Maps.</p>
+      <p class="lead">Every customer who has reviewed us on Google gave us five stars.</p>
+      <div>
+        <div class="rating">
+          <div class="score">5.0</div>
+          <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <p>Rated on Google Maps</p>
+        </div>
+      </div>
       <div class="reviews">
-        <div class="review placeholder">
+        <div class="review">
           <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
-          <blockquote>Google review text goes here.</blockquote>
-          <cite>Customer name<span>Google review</span></cite>
+          <blockquote>
+            <p>I can’t recommend RM Mobile Detailing enough! From start to finish, the service was professional, thorough, and handled with care. My car feels like brand new again—inside and out. 🚗✨</p>
+            <p>The attention to detail was incredible! Whether you’ve got a little wear and tear or need a full refresh, this team will take care of it.</p>
+            <p>Friendly, reliable, and high-quality service—if you want your car to shine, look no further! 💯</p>
+          </blockquote>
+          <cite>Stephanie Duggan<span>Google review</span></cite>
         </div>
-        <div class="review placeholder">
+        <div class="review">
           <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
-          <blockquote>Google review text goes here.</blockquote>
-          <cite>Customer name<span>Google review</span></cite>
+          <blockquote>Moh provide an excellent service, product expertise and patience when cleaning our car. Thank you for such an amazing job and can’t wait to book you again for our next car project!!</blockquote>
+          <cite>Tashu Werkneh<span>Google review</span></cite>
         </div>
-        <div class="review placeholder">
+        <div class="review">
           <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
-          <blockquote>Google review text goes here.</blockquote>
-          <cite>Customer name<span>Google review</span></cite>
+          <blockquote>Excellent service</blockquote>
+          <cite>Taha Med<span>Google review</span></cite>
         </div>
       </div>
       <a class="btn btn-ghost" data-reviews-link href="#reviews" target="_blank" rel="noopener">Read all reviews on Google</a>
@@ -443,6 +480,10 @@
           <a class="btn btn-primary btn-block" data-phone-link href="#contact">Call Now</a>
           <a class="btn btn-ghost btn-block" data-sms-link href="#contact">Send a Text</a>
           <p style="margin:14px 0 0">Email: <a class="mail" data-email-link href="#contact"></a></p>
+          <a class="social" data-insta-link href="#contact" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></svg>
+            @rm_mobile_detailing
+          </a>
         </div>
 
         <div class="form-card">
@@ -521,7 +562,7 @@
 <footer>
   <div class="wrap">
     <div>© <span id="year"></span> RM Mobile Detailing · Ottawa, Ontario</div>
-    <div><a data-phone-link href="#contact" data-phone-text></a> · <a data-email-link href="#contact"></a></div>
+    <div><a data-phone-link href="#contact" data-phone-text></a> · <a data-email-link href="#contact"></a> · <a data-insta-link href="#contact" target="_blank" rel="noopener">Instagram</a></div>
   </div>
 </footer>
 
@@ -533,10 +574,11 @@
 <script>
   /* ===== BUSINESS DETAILS: edit these in one place ===== */
   const CONFIG = {
-    phone: "+16135550123",                    // TODO: real number, digits only with +1
-    phoneDisplay: "(613) 555-0123",           // TODO: how the number is shown
-    email: "info@rmmobiledetailing.ca",       // TODO: owner's email
-    googleReviewsUrl: "",                     // TODO: Google Maps link to the business
+    phone: "+16134157214",                    // digits only with +1
+    phoneDisplay: "(613) 415-7214",           // how the number is shown
+    email: "rmmobiledetailing@gmail.com",
+    googleReviewsUrl: "https://www.google.ca/maps/place/Rmmobiledetailing/@45.2482753,-76.1299048,10z/data=!4m8!3m7!1s0xec1ea6d6deab31:0xe6bcd1594c2fb90e!8m2!3d45.2482659!4d-75.8002569!9m1!1b1!16s%2Fg%2F11yg5hnjks",
+    instagramUrl: "https://www.instagram.com/rm_mobile_detailing",
     web3formsKey: ""                          // Free key from web3forms.com. Empty = form opens the visitor's email app instead.
   };
   /* ===================================================== */
@@ -547,6 +589,7 @@
   $$("[data-sms-link]").forEach(a => a.href = "sms:" + CONFIG.phone);
   $$("[data-email-link]").forEach(a => { a.href = "mailto:" + CONFIG.email; a.textContent = CONFIG.email; });
   $$("[data-reviews-link]").forEach(a => { if (CONFIG.googleReviewsUrl) a.href = CONFIG.googleReviewsUrl; else a.hidden = true; });
+  $$("[data-insta-link]").forEach(a => a.href = CONFIG.instagramUrl);
   document.getElementById("year").textContent = new Date().getFullYear();
 
   // Photo carousel: scrolls by itself, loops forever, pauses while someone hovers or swipes
